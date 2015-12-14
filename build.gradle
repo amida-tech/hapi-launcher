@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()
+	     maven {
+	      url "https://plugins.gradle.org/m2/"
+	    }       
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.2'
+    }
+}
+
+repositories {
+        mavenCentral()
+        maven{
+         url "http://clojars.org/repo"
+        }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+
+dependencies {
+    compile 'org.eclipse.jetty:jetty-server:9.3.2.v20150730'
+    compile 'org.eclipse.jetty:jetty-http:9.3.2.v20150730'
+    compile 'org.eclipse.jetty:jetty-io:9.3.2.v20150730'
+    compile 'org.eclipse.jetty:jetty-servlet:9.3.2.v20150730'
+    compile 'org.eclipse.jetty:jetty-servlets:9.3.2.v20150730'
+    compile 'org.eclipse.jetty:jetty-jmx:9.3.2.v20150730'
+    compile 'org.eclipse.jetty:jetty-webapp:9.3.2.v20150730'
+
+    testCompile 'junit:junit:3.8.1'
+}
+	
+mainClassName = 'com.amida.simpleServer.App'
